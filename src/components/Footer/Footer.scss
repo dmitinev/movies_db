@@ -1,0 +1,48 @@
+.footer_container {
+}
+
+.page_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  min-width: 100%;
+}
+
+.footer_contacts {
+  &__heading {
+    margin-top: 0;
+    margin-bottom: 38px;
+    text-transform: uppercase;
+    letter-spacing: 0.16px;
+    text-align: center;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.footer_copyright {
+  color: #676767;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.14px;
+  text-align: center;
+  margin-top: 72px;
+  position: relative;
+  min-width: 100%;
+  &::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: rgba(62, 62, 62, 0.63);
+    position: absolute;
+    top: -20px;
+    left: 0;
+  }
+}

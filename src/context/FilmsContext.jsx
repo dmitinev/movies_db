@@ -1,9 +1,23 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
+import useMoviesApi from '../hooks/useMoviesApi.jsx';
 
-const filmsContext = createContext(null);
+export const FilmsContext = createContext({});
 
 const FilmsContextProvider = ({ children }) => {
-  return <filmsContext.Provider>{children}</filmsContext.Provider>;
+  const [query, setQuery] = useState('terminator');
+  const [movies] = useMoviesApi(query);
+
+  const changeHandler = e => {
+    setQuery(e.target.value);
+  };
+
+  return (
+    <FilmsContext.Provider
+      value={{ onChangeHandler: changeHandler, movies: movies, query: query }}
+    >
+      {children}
+    </FilmsContext.Provider>
+  );
 };
 
 export default FilmsContextProvider;
