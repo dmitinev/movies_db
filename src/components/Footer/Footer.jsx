@@ -1,7 +1,7 @@
 import Icon from '../IconSvg/Icon.jsx';
 import './Footer.scss';
 
-const Footer = ({ props }) => {
+const Footer = () => {
   return (
     <div className="footer_container">
       <footer className="page_footer" data-testid="footer">
@@ -20,9 +20,5 @@ const Footer = ({ props }) => {
     </div>
   );
 };
-
-Footer.propTypes = {};
-
-Footer.defaultProps = {};
 
 export default Footer;
