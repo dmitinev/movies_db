@@ -1,0 +1,42 @@
+.page_header__container {
+  max-width: 80.125rem;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+}
+
+.page_header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 48.4375rem;
+  flex: 1 1 auto;
+  &::before {
+    content: '';
+    z-index: -1;
+    min-height: 48.4375rem;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(161, 217, 212);
+  }
+  &__logo {
+    color: #fff;
+    font-size: 30px;
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+  &__decor {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}

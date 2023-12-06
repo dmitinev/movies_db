@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 const env = await import.meta.env;
-const BASE_URL = `http://www.omdbapi.com/?apikey=${env.VITE_API_KEY}`;
+const BASE_URL = `http://www.omdbapi.com/?apikey=${await import.meta.env
+  .VITE_API_KEY}`;
 
 const useMoviesApi = query => {
   const controller = new AbortController();

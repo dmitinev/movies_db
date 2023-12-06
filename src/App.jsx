@@ -5,11 +5,13 @@ import Main from './components/Main/Main.jsx';
 
 function App() {
   return (
-    <div className="main_container">
+    <>
       <Header />
-      <Main />
-      <Footer />
-    </div>
+      <div className="main_container">
+        <Main />
+        <Footer />
+      </div>
+    </>
   );
 }
 
