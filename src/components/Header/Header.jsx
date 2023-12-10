@@ -1,14 +1,13 @@
-import useProgressiveImage from '../../hooks/useProgressiveImage.jsx';
+import imgHeaderUrl from '../../assets/header_poster.jpg';
 import HeaderDecoration from '../HeaderDecoration/HeaderDecoration.jsx';
 import './Header.scss';
 
 const Header = () => {
-  const backgroundImg = useProgressiveImage('./src/assets/header_poster.jpg');
   return (
     <header
       className="page_header"
       style={{
-        backgroundImage: `url(${backgroundImg})`,
+        backgroundImage: `url(${imgHeaderUrl})`,
       }}
     >
       <div className="page_header__decor">
