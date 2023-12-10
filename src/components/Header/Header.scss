@@ -8,6 +8,9 @@
 }
 
 .page_header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   background-size: cover;
   background-position: center;
@@ -38,5 +41,9 @@
     left: 0;
     display: flex;
     flex-direction: column;
+  }
+
+  &__slider-block {
+    width: 100%;
   }
 }

@@ -1,5 +1,6 @@
 import imgHeaderUrl from '../../assets/header_poster.jpg';
 import HeaderDecoration from '../HeaderDecoration/HeaderDecoration.jsx';
+import Slider from '../Slider/Slider.jsx';
 import './Header.scss';
 
 const Header = () => {
@@ -16,6 +17,9 @@ const Header = () => {
       </div>
       <div className="page_header__container">
         <span className="page_header__logo">MoviesDB</span>
+      </div>
+      <div className="page_header__slider-block">
+        <Slider />
       </div>
     </header>
   );
