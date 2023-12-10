@@ -1,4 +1,17 @@
 .page_header__slider {
-  margin-bottom: 20px;
-  //display: flex;
+  overflow: visible;
+  min-height: 385px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.7s;
+    &--active {
+      transform: scale(2);
+    }
+  }
 }

@@ -2,6 +2,10 @@ import imgHeaderUrl from '../../assets/header_poster.jpg';
 import HeaderDecoration from '../HeaderDecoration/HeaderDecoration.jsx';
 import Slider from '../Slider/Slider.jsx';
 import './Header.scss';
+const SliderImages = import.meta.glob('../../assets/slider_images/*');
+const imageUrls = Object.keys(SliderImages).map(
+  image => new URL(image, import.meta.url).href,
+);
 
 const Header = () => {
   return (
@@ -19,7 +23,7 @@ const Header = () => {
         <span className="page_header__logo">MoviesDB</span>
       </div>
       <div className="page_header__slider-block">
-        <Slider />
+        <Slider images={imageUrls} />
       </div>
     </header>
   );
