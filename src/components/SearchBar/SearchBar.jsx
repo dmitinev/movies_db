@@ -5,14 +5,16 @@ import './SearchBar.scss';
 const SearchBar = () => {
   const { query, onChangeHandler } = useContext(FilmsContext);
   return (
-    <input
-      type="text"
-      placeholder="Enter movie name to search"
-      className="searchBar"
-      data-testid="searchBar"
-      value={query}
-      onChange={onChangeHandler}
-    />
+    <>
+      <input
+        type="text"
+        placeholder="Enter movie name to search"
+        className="searchBar"
+        data-testid="searchBar"
+        value={query}
+        onChange={onChangeHandler}
+      />
+    </>
   );
 };
 
