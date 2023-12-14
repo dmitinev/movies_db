@@ -1,18 +1,8 @@
 import './App.scss';
-import Footer from './components/Footer/Footer.jsx';
-import Header from './components/Header/Header.jsx';
-import Main from './components/Main/Main.jsx';
+import AppRoutes from './Routes/AppRoutes.jsx';
 
 function App() {
-  return (
-    <>
-      <Header />
-      <div className="main_container">
-        <Main />
-        <Footer />
-      </div>
-    </>
-  );
+  return <AppRoutes />;
 }
 
 export default App;

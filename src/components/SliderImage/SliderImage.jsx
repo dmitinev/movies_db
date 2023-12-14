@@ -1,7 +1,21 @@
+import { useSwiperSlide } from 'swiper/react';
+import SliderImageButton from '../SliderImageButton/SliderImageButton.jsx';
 import './SliderImage.scss';
 
-const SliderImage = ({ src, altText, className }) => {
-  return <img className={className} src={src} alt={altText} />;
+const SliderImage = ({ src, altText }) => {
+  const { isActive } = useSwiperSlide();
+  return (
+    <div
+      className={
+        isActive
+          ? 'page_header__slider-slide--active'
+          : 'page_header__slider-slide'
+      }
+    >
+      <img src={src} alt={altText} />;
+      <SliderImageButton />
+    </div>
+  );
 };
 
 SliderImage.defaultProps = {

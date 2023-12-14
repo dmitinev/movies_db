@@ -1,0 +1,11 @@
+.page_header__slider-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //position: relative;
+  cursor: pointer;
+  transition: transform 0.7s;
+  &--active {
+    transform: scale(2);
+  }
+}

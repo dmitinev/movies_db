@@ -1,0 +1,21 @@
+.page_header__slider_btn {
+  display: none;
+  position: absolute;
+  border: 0;
+  outline: 0;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 70%;
+  text-decoration: none;
+}
+
+.page_header__slider-slide--active .page_header__slider_btn {
+  display: inline-flex;
+  background-color: #ab0a10;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 8px 15px;
+}

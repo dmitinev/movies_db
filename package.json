@@ -11,12 +11,15 @@
     "component": "generate-react component"
   },
   "dependencies": {
+    "antd": "^5.12.2",
     "axios": "^1.6.2",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.0",
     "sass": "^1.69.5",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "the-new-css-reset": "^1.11.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
