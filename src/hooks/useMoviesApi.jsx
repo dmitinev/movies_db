@@ -10,6 +10,10 @@ const useMoviesApi = query => {
   const [error, setError] = useState({ error: false, msg: '' });
 
   useEffect(() => {
+    setMovies([]);
+  }, [query]);
+
+  useEffect(() => {
     setLoading(true);
     setError({ error: false, msg: '' });
     axios({
@@ -18,14 +22,22 @@ const useMoviesApi = query => {
       signal: controller.signal,
     })
       .then(({ data }) => {
-        setLoading(false);
-        setMovies([...data.Search]);
-        console.log(data);
+        if (!data.Error) {
+          console.log(data);
+          setLoading(false);
+          setMovies([...data.Search]);
+        } else {
+          setLoading(false);
+        }
       })
       .catch(e => {
-        if (!axios.isCancel(e)) setError({ error: true, msg: e.msg });
+        if (axios.isCancel(e)) return;
+        setError({ error: true, msg: e });
+        setLoading(false);
       });
-    return () => controller.abort();
+    return () => {
+      controller.abort();
+    };
   }, [query]);
 
   return [movies, loading, error];
