@@ -14,8 +14,8 @@ const useMoviesApi = query => {
   }, [query]);
 
   useEffect(() => {
+    if (query.length === 0) return;
     setLoading(true);
-    setError({ error: false, msg: '' });
     axios({
       method: 'GET',
       url: BASE_URL + `&s=${query}`,
