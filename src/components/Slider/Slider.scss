@@ -1,9 +1,8 @@
 .page_header__slider {
-  overflow: visible;
   min-height: 385px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-y: hidden;
+  overflow: hidden;
   will-change: transform;
 }

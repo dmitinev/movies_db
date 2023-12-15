@@ -4,4 +4,7 @@
   border-radius: 3px;
   padding: 10px;
   outline: none;
+  &:focus {
+    outline: none;
+  }
 }
