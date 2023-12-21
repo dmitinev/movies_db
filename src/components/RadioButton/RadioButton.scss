@@ -1,0 +1,9 @@
+.radio_btn {
+  min-width: 20px;
+  min-height: 20px;
+  all: revert;
+  accent-color: black;
+  &__label {
+    display: inline-flex;
+  }
+}

@@ -2,4 +2,15 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  &__serchItems {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  &__paramBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+  }
 }
