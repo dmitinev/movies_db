@@ -17,7 +17,6 @@ const FilmSearch = () => {
           <RadioButton value="Series" name="film_radio" />
           <RadioButton value="Movie" name="film_radio" />
           <RadioButton value="Game" name="film_radio" />
-          <RadioButton value="Game" name="film_radio" />
         </div>
       </div>
       <CardsPanel />

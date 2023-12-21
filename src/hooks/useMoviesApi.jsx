@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const BASE_URL = `http://www.omdbapi.com/?apikey=${await import.meta.env
   .VITE_API_KEY}`;
 
-const useMoviesApi = query => {
+const useMoviesApi = (query, param) => {
   const controller = new AbortController();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,7 @@ const useMoviesApi = query => {
     setLoading(true);
     axios({
       method: 'GET',
-      url: BASE_URL + `&s=${query}`,
+      url: BASE_URL + `&s=${query}&type=${param}`,
       signal: controller.signal,
     })
       .then(({ data }) => {
@@ -38,7 +38,7 @@ const useMoviesApi = query => {
     return () => {
       controller.abort();
     };
-  }, [query]);
+  }, [query, param]);
 
   return [movies, loading, error];
 };
