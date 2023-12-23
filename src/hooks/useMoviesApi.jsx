@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-const BASE_URL = `http://www.omdbapi.com/?apikey=${await import.meta.env
+export const BASE_URL = `http://www.omdbapi.com/?apikey=${await import.meta.env
   .VITE_API_KEY}`;
 
 const useMoviesApi = (query, param) => {
@@ -23,7 +23,6 @@ const useMoviesApi = (query, param) => {
     })
       .then(({ data }) => {
         if (!data.Error) {
-          console.log(data);
           setLoading(false);
           setMovies([...data.Search]);
         } else {
@@ -40,7 +39,7 @@ const useMoviesApi = (query, param) => {
     };
   }, [query, param]);
 
-  return [movies, loading, error];
+  return [movies, loading, error, setError];
 };
 
 export default useMoviesApi;

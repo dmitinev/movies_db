@@ -1,12 +1,14 @@
+import axios from 'axios';
 import { createContext, useCallback, useMemo, useState } from 'react';
-import useMoviesApi from '../hooks/useMoviesApi.jsx';
+import useMoviesApi, { BASE_URL } from '../hooks/useMoviesApi.jsx';
 
 export const FilmsContext = createContext({});
 
 const FilmsContextProvider = ({ children }) => {
   const [query, setQuery] = useState(''),
     [params, setParams] = useState(''),
-    [movies, loading, error] = useMoviesApi(query, params),
+    [contentInfo, setContentInfo] = useState(''),
+    [movies, loading, error, setError] = useMoviesApi(query, params),
     changeHandler = useCallback(
       e => {
         setQuery(e.target.value);
@@ -23,6 +25,14 @@ const FilmsContextProvider = ({ children }) => {
       },
       [params],
     ),
+    loadMovieContent = useCallback(movieID => {
+      axios
+        .get(BASE_URL + `&i=${movieID}`)
+        .then(({ data }) => {
+          setContentInfo(data);
+        })
+        .catch(e => setError({ error: true, msg: e }));
+    }, []),
     contextValue = useMemo(() => {
       return {
         onChangeHandler: changeHandler,
@@ -32,8 +42,20 @@ const FilmsContextProvider = ({ children }) => {
         query: query,
         isMoviesLoading: loading,
         error: error,
+        loadMovieData: loadMovieContent,
+        contentInfo: contentInfo,
       };
-    }, [movies, query, loading, error, changeHandler, radioBtnHandler, params]);
+    }, [
+      movies,
+      query,
+      loading,
+      error,
+      changeHandler,
+      radioBtnHandler,
+      params,
+      loadMovieContent,
+      contentInfo,
+    ]);
 
   return (
     <FilmsContext.Provider value={contextValue}>

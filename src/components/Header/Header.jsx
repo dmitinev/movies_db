@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import imgHeaderUrl from '../../assets/header_poster.jpg';
 import HeaderDecoration from '../HeaderDecoration/HeaderDecoration.jsx';
 import Slider from '../Slider/Slider.jsx';
@@ -20,7 +21,9 @@ const Header = () => {
         <HeaderDecoration label="Soon" />
       </div>
       <div className="page_header__container">
-        <span className="page_header__logo">MoviesDB</span>
+        <Link to="/">
+          <span className="page_header__logo">MoviesDB</span>
+        </Link>
       </div>
       <div className="page_header__slider-block">
         <Slider images={imageUrls} />
