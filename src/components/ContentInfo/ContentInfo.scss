@@ -3,4 +3,37 @@
   flex-direction: column;
   flex: 1 1 auto;
   margin-bottom: 40px;
+  font-family: 'Roboto', sans-serif;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  &__heading {
+    font-weight: 900;
+    font-size: 26px;
+  }
+
+  &__year {
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__country {
+    font-weight: 500;
+    font-size: 17px;
+  }
+
+  &__releaseDate {
+    font-weight: 400;
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__plot {
+    font-weight: 400;
+    font-size: 18px;
+  }
 }
