@@ -9,7 +9,6 @@ const imageUrls = Object.keys(SliderImages).map(
 );
 
 const Header = () => {
-  console.log(imageUrls);
   return (
     <header
       className="page_header"
