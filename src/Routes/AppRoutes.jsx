@@ -5,7 +5,7 @@ import MainPage from '../pages/MainPage/MainPage.jsx';
 
 const AppRoutes = () => (
   <Routes>
-    <Route path="/" element={<MainPage />} />
+    <Route path="/movies_db/" element={<MainPage />} />
     <Route path="/card/:contentId" element={<ContentPage />} />
     <Route path="*" element={<Page404 />} />
   </Routes>
