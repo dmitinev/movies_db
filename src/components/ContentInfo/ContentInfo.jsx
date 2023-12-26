@@ -1,15 +1,26 @@
 import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { FilmsContext } from '../../context/FilmsContext.jsx';
+import ContentImage from '../ContentImage/ContentImage.jsx';
+import ErrorLoadingMovies from '../ErrorLoadingMovies/ErrorLoadingMovies.jsx';
+import Loader from '../Loader/Loader.jsx';
 import './ContentInfo.scss';
 
 const ContentInfo = () => {
-  const { contentInfo, loadMovieData } = useContext(FilmsContext);
+  const {
+    contentInfo,
+    loadMovieData,
+    contentInfoIsLoading,
+    contentInfoIsLoadingError,
+  } = useContext(FilmsContext);
   const { contentId } = useParams();
 
   useEffect(() => {
     loadMovieData(contentId);
   }, []);
+
+  if (contentInfoIsLoading) return <Loader />;
+  if (contentInfoIsLoadingError) return <ErrorLoadingMovies />;
 
   return (
     <div className="contentInfo" data-testid="contentInfo">
@@ -21,8 +32,8 @@ const ContentInfo = () => {
       <span className="contentInfo__releaseDate">
         Released: {contentInfo.Released}
       </span>
-      <img
-        src={
+      <ContentImage
+        url={
           contentInfo.Poster === 'N/A'
             ? 'https://placehold.co/277x400?text=N/A'
             : contentInfo.Poster

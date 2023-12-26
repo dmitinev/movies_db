@@ -7,8 +7,10 @@ export const FilmsContext = createContext({});
 const FilmsContextProvider = ({ children }) => {
   const [query, setQuery] = useState(''),
     [params, setParams] = useState(''),
+    [contentInfoIsLoading, setContentInfoIsLoading] = useState(false),
+    [contentInfoIsLoadingError, setContentInfoIsLoadingError] = useState(false),
     [contentInfo, setContentInfo] = useState(''),
-    [movies, loading, error, setError] = useMoviesApi(query, params),
+    [movies, loading, error] = useMoviesApi(query, params),
     changeHandler = useCallback(
       e => {
         setQuery(e.target.value);
@@ -26,12 +28,20 @@ const FilmsContextProvider = ({ children }) => {
       [params],
     ),
     loadMovieContent = useCallback(movieID => {
+      setContentInfoIsLoading(true);
       axios
         .get(BASE_URL + `&i=${movieID}`)
         .then(({ data }) => {
-          setContentInfo(data);
+          if (!data.Error) {
+            setContentInfo(data);
+            setContentInfoIsLoading(false);
+          } else {
+            setContentInfoIsLoading(false);
+            setContentInfoIsLoadingError(true);
+          }
         })
-        .catch(e => setError({ error: true, msg: e }));
+        // eslint-disable-next-line no-unused-vars
+        .catch(_ => setContentInfoIsLoadingError(true));
     }, []),
     contextValue = useMemo(() => {
       return {
@@ -44,6 +54,8 @@ const FilmsContextProvider = ({ children }) => {
         error: error,
         loadMovieData: loadMovieContent,
         contentInfo: contentInfo,
+        contentInfoIsLoading: contentInfoIsLoading,
+        contentInfoIsLoadingError: contentInfoIsLoadingError,
       };
     }, [
       movies,
@@ -55,6 +67,8 @@ const FilmsContextProvider = ({ children }) => {
       params,
       loadMovieContent,
       contentInfo,
+      contentInfoIsLoading,
+      contentInfoIsLoadingError,
     ]);
 
   return (

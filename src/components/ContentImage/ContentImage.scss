@@ -1,0 +1,19 @@
+.image__loading {
+  max-width: 277px;
+  max-height: 400px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  animation: fade-out 0.5s forwards;
+  &--processing {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+    display: flex;
+  }
+}

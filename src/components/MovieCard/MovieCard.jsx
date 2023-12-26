@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
+import ContentImage from '../ContentImage/ContentImage.jsx';
 import './MovieCard.scss';
 
 const MovieCard = ({ Poster, Title, Year, imdbID }) => {
   return (
     <Link to={`/card/${imdbID}`}>
       <div className="movieCard" data-testid="movieCard">
-        <img
-          src={
+        <ContentImage
+          url={
             Poster === 'N/A' ? 'https://placehold.co/277x400?text=N/A' : Poster
           }
           alt="movie card poster"

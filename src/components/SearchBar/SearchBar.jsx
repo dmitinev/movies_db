@@ -10,7 +10,7 @@ const SearchBar = () => {
       placeholder="Enter movie name to search"
       className="searchBar"
       data-testid="searchBar"
-      value={query}
+      value={localStorage.getItem('query') || query}
       onChange={onChangeHandler}
     />
   );

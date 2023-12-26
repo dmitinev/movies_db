@@ -15,6 +15,7 @@ const useMoviesApi = (query, param) => {
 
   useEffect(() => {
     if (query.length === 0) return;
+    localStorage.setItem('query', query);
     setLoading(true);
     axios({
       method: 'GET',
@@ -39,7 +40,7 @@ const useMoviesApi = (query, param) => {
     };
   }, [query, param]);
 
-  return [movies, loading, error, setError];
+  return [movies, loading, error];
 };
 
 export default useMoviesApi;

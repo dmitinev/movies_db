@@ -3,7 +3,7 @@ import './Loader.scss';
 
 const Loader = ({ size }) => {
   return (
-    <div className="loader" data-testid="loader">
+    <div className="gen_loader" data-testid="loader">
       <Spin size={size} />
     </div>
   );

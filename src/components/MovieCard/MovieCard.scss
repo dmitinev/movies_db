@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
   padding: 10px;
   border-radius: 10px;
@@ -19,6 +20,7 @@
   &__title {
     font-size: 20px;
     font-weight: 600;
+    text-align: center;
   }
 
   &__year {
