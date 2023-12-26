@@ -20,4 +20,5 @@ export default defineConfig({
       'top-level-await': true,
     },
   },
+  base: 'movies_db',
 });
