@@ -14,11 +14,6 @@ import image7 from '/src/assets/slider_img7.jpg';
 import image8 from '/src/assets/slider_img8.jpg';
 import image9 from '/src/assets/slider_img9.jpg';
 
-// const SliderImages = import.meta.glob('../../assets/slider_*.*');
-// const imageUrls = Object.keys(SliderImages).map(
-//   image => new URL(image, import.meta.url).href,
-// );
-
 const Header = () => {
   const SliderImages = useMemo(
     () => [

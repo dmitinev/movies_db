@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-export const BASE_URL = `http://www.omdbapi.com/?apikey=${await import.meta.env
+export const BASE_URL = `https://www.omdbapi.com/?apikey=${await import.meta.env
   .VITE_API_KEY}`;
 
 const useMoviesApi = (query, param) => {
